@@ -6,9 +6,9 @@ export default async function handler(req, res) {
 
   const { name, email, message } = req.body;
 
-  // 여기에 본인의 Notion 정보 입력!
-  const NOTION_DATABASE_ID = "256280bce33d80998ca1f38447bddadd";
-  const NOTION_API_KEY = "YOUR_SECRET_API_KEY";
+  // 환경 변수에서 불러오기
+  const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
+  const NOTION_API_KEY = process.env.NOTION_API_KEY;
 
   const notionRes = await fetch("https://api.notion.com/v1/pages", {
     method: "POST",
